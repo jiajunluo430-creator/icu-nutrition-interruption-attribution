@@ -1,0 +1,16 @@
+analysis,observed_kcal,null_kcal,excess_kcal,ci,pct_of_shortfall,kcal_per_stay,note
+"Primary (all routes, 6 h defensible window)",492113,377453,114660,"81,782 to 144,699",0.177,16.7,
+Defensible window for P1/P2 = 0 h,728641,505080,223561,"181,514 to 261,805",0.344,32.5,
+Defensible window for P1/P2 = 2 h,640651,457548,183103,"146,453 to 218,125",0.282,26.6,
+Defensible window for P1/P2 = 4 h,559521,413775,145746,"109,981 to 177,884",0.225,21.2,
+Defensible window for P1/P2 = 8 h,438735,347266,91469,"62,460 to 119,707",0.141,13.3,
+Route: enteral-only stays,488694,372868,115826,"83,691 to 145,923",0.178,16.8,
+Excluding interruptions starting at 00:00,413190,305808,107382,"79,828 to 133,988",0.165,15.6,
+Excluding interruptions starting 23:00-01:00,377826,274021,103805,"78,024 to 129,250",0.16,15.1,
+Priority: transport first,516646,391979,124667,"90,550 to 156,019",0.192,18.1,
+Priority: negative control first,365760,265341,100419,"73,647 to 127,448",0.155,14.6,
+Reference target 20 kcal/kg/day,492113,377453,114660,"81,782 to 144,699",0.242,16.7,shortfall 47.3 M kcal
+Reference target 30 kcal/kg/day,492113,377453,114660,"81,782 to 144,699",0.139,16.7,shortfall 82.7 M kcal
+Denominator censored at first recorded oral intake,492113,377453,114660,"81,782 to 144,699",0.181,16.7,numerator unchanged
+Ramped reference target (40/70/100% days 1/2/3+),492113,377453,114660,"81,782 to 144,699",0.22,16.7,numerator unchanged
+Complementary across-patient null (ICU day + clock hour),,,221920,"189,217 to 251,208",0.342,32.2,different exchangeability assumption; not a bound

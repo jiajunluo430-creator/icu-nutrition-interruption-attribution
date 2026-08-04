@@ -1,0 +1,16 @@
+analysis,observed_kcal,null_kcal,chance_corrected_kcal,pct_of_shortfall,kcal_per_stay,note
+"Primary (all routes, 6 h defensible)",495197,380881,114317,0.176,16.6,
+Route = EN only (n=5312 interruptions),491779,375848,115931,0.179,16.8,
+Route = mixed only (n=120 interruptions),2957,3996,-1040,-0.002,-0.2,
+Defensible window for P1/P2 = 0 h,732157,507149,225008,0.347,32.7,
+Defensible window for P1/P2 = 2 h,644023,462778,181245,0.279,26.3,
+Defensible window for P1/P2 = 4 h,562750,418602,144148,0.222,20.9,
+Defensible window for P1/P2 = 6 h,495197,381139,114058,0.176,16.6,
+Defensible window for P1/P2 = 8 h,441675,350593,91083,0.14,13.2,
+Excluding onsets at 00:00 (n=4946),416275,307702,108573,0.167,15.8,
+Excluding onsets 23:00-01:00 (n=4627),378680,274931,103749,0.16,15.1,
+Priority: transport-first (P3>P1>P2>P4>P5>P0),519731,395811,123920,0.191,18.0,
+Priority: negative-control-first (P0 wins ties),368845,270276,98568,0.152,14.3,
+Reference target 20 kcal/kg/day,495197,380977,114220,0.241,16.6,total shortfall 47.3 M kcal
+Reference target 25 kcal/kg/day,495197,380977,114220,0.176,16.6,total shortfall 64.9 M kcal
+Reference target 30 kcal/kg/day,495197,380977,114220,0.138,16.6,total shortfall 82.7 M kcal

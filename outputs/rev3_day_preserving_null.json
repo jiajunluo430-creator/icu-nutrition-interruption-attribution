@@ -1,0 +1,19 @@
+{
+  "null_type": "across-patient, ICU day and clock hour both preserved",
+  "n_replicates": 500,
+  "seed": 20260808,
+  "n_usable": 5499,
+  "rate_observed_pct": 38.9,
+  "rate_null_pct": 21.2,
+  "rate_excess_pp": 17.7,
+  "energy_excess_kcal": 221920.06623424758,
+  "energy_excess_ci": [
+    189216.52724787893,
+    251208.14692174835
+  ],
+  "pct_of_shortfall": 0.342,
+  "pct_ci": [
+    0.292,
+    0.387
+  ]
+}

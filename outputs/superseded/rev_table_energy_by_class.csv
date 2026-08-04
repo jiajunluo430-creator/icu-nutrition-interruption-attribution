@@ -1,0 +1,7 @@
+class,label,obs_kcal,null_kcal,excess_kcal,pct_of_shortfall
+P1,Airway / sedation,173364,107069,66296,0.102
+P2,GI endoscopic,23227,7064,16163,0.025
+P3,Off-unit transport,254300,221505,32796,0.051
+P4,Bedside invasive,27051,31040,-3989,-0.006
+P5,Renal replacement,17255,15955,1299,0.002
+P0,Bedside diagnostics (negative control),250103,303754,-53651,-0.083

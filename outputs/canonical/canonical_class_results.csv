@@ -1,0 +1,7 @@
+class,label,role,rate_observed_pct,rate_null_pct,rate_excess_pp,rate_excess_lo,rate_excess_hi,rate_null_excluded,energy_obs_kcal,energy_null_kcal,energy_excess_kcal,energy_excess_lo,energy_excess_hi,energy_null_excluded
+P1,Airway / sedation,target,13.8,8.0,5.7,4.87,6.68,True,172510,106160,66351,47692,84552,True
+P2,GI endoscopic,target,1.4,0.8,0.6,0.28,0.9,True,23227,7212,16015,8474,24630,True
+P3,Off-unit transport,target,14.0,8.5,5.5,4.62,6.42,True,252070,217432,34638,9775,58710,True
+P4,Bedside invasive,target,1.9,1.7,0.2,-0.14,0.61,False,27051,30938,-3887,-13973,6076,False
+P5,Renal replacement,target,0.8,0.6,0.2,-0.01,0.39,False,17255,15711,1544,-6763,10149,False
+P0,Bedside diagnostics (negative control),negative control,15.7,15.7,0.0,-0.93,0.97,False,250103,304715,-54612,-82514,-25638,True

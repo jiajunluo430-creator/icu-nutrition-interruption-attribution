@@ -51,6 +51,12 @@ python scripts/03_eicu_gate_g6.py         # eICU transportability gate
 python scripts/04_main_analysis.py        # primary analysis
 python scripts/08_strengthen.py           # bootstrap CIs, circular null, deficit share
 python scripts/09_figures_v2.py           # figures
+python scripts/23_locked_null_and_p0.py   # writes locked_referent_draws.npy (seed 20260807)
+python scripts/24_day_preserving_null.py  # complementary across-patient null
+python scripts/26_rate_ci_from_locked.py  # rate CIs from the locked draws
+python scripts/27_canonical.py            # THE single source of truth -> outputs/canonical/
+python scripts/29_p0_diagnostics_canonical.py
+python scripts/22_build_supplement_v2.py  # supplement, rebuilt from canonical
 python scripts/10_verify_references.py    # PubMed reference verification
 python scripts/14_expand_references.py
 python scripts/11_insert_citations.py     # citation numbering + order check
@@ -61,6 +67,14 @@ python scripts/15_build_code_release.py
 ```
 
 `scripts/01` and `scripts/03` are the slow steps (full scans of ~11M and ~12M rows).
+
+**`27_canonical.py` is the one that matters for reproducing the reported numbers.** An
+earlier version of this pipeline let scripts 17, 20 and 23 each seed their own generator,
+which produced several mutually inconsistent estimates of the same quantity. Script 27
+now recomputes the primary estimand, every class, and every sensitivity specification
+from one locked draw set in a single pass, and asserts that the class-level energies sum
+to the primary total before writing anything. Tables that predate it are quarantined
+under `outputs/superseded/` with the value that replaced them.
 
 ## Prespecification
 
@@ -92,9 +106,8 @@ proved biased in our favour, is recorded in `outputs/exploratory_attempts.csv`.
 
 ## Citation
 
-Luo J, Chen Q, Liu J, Lu F, Liang X. Chance co-occurrence inflates procedure attribution
-of enteral nutrition interruption: a placebo-controlled analysis of the ICU energy
-deficit in 6,883 critically ill adults. *Submitted*.
+Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates timestamp
+attribution of ICU nutrition-support interruptions to procedures. *Submitted*.
 
 ## License
 

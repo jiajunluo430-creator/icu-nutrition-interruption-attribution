@@ -59,9 +59,52 @@ for f in sorted((ROOT / "04_figures").glob("*")):
     if f.suffix in (".png", ".pdf"):
         shutil.copy(f, REL / "figures" / f.name); copied.append(f.name)
 
+# the canonical set is what every reported number comes from - it must ship.
+# .npy is excluded on purpose: obs/null_assigned_primary.npy carry one element per
+# interruption in the same row order as interruptions.csv, i.e. derived row-level data.
+# They are deterministic from seed 20260807, so scripts 23 and 27 regenerate them.
+(REL / "outputs" / "canonical").mkdir()
+for f in sorted((ROOT / "03_outputs" / "canonical").glob("*")):
+    if f.suffix == ".npy":
+        continue
+    shutil.copy(f, REL / "outputs" / "canonical" / f.name); copied.append(f.name)
+# and the tables the canonical set superseded, so the record is auditable
+(REL / "outputs" / "superseded").mkdir()
+for f in sorted((ROOT / "03_outputs" / "_superseded").glob("*")):
+    shutil.copy(f, REL / "outputs" / "superseded" / f.name); copied.append(f.name)
+for n in ("rev3_day_preserving_null.json", "rev3_p0_diagnostics.csv",
+          "rate_ci_locked.json"):
+    src = ROOT / "03_outputs" / n
+    if src.exists():
+        shutil.copy(src, REL / "outputs" / n); copied.append(n)
+
 leaked = sorted(set(copied) & DENY)
 if leaked:
     raise SystemExit(f"ABORT: row-level files would be published: {leaked}")
+
+# --- structural guard: a filename denylist only catches files we thought of.
+# Nothing may ship that is one-row-per-patient-record or an opaque binary array.
+N_REPLICATES, ID_COLS = 1000, ("stay_id", "subject_id", "hadm_id", "patientunitstayid")
+struct = []
+for f in sorted(REL.rglob("*")):
+    rel = f.relative_to(REL).parts
+    if not f.is_file() or ".git" in rel or rel[0] in ("scripts", "figures"):
+        continue
+    if f.suffix in (".npy", ".npz", ".pkl", ".parquet", ".feather"):
+        struct.append(f"{f.name}: binary array")
+        continue
+    if f.suffix != ".csv":
+        continue
+    with open(f, encoding="utf-8", errors="replace") as fh:
+        hdr = [c.strip().lower() for c in (fh.readline().split(","))]
+        n = sum(1 for _ in fh)
+    hit = sorted(set(hdr) & set(ID_COLS))
+    if hit:
+        struct.append(f"{f.name}: identifier column {hit}")
+    elif n > N_REPLICATES:
+        struct.append(f"{f.name}: {n} rows > {N_REPLICATES} replicates")
+if struct:
+    raise SystemExit("ABORT: structural row-level check failed:\n  " + "\n  ".join(struct))
 
 (REL / "requirements.txt").write_text(
     "pandas>=3.0\nnumpy>=2.0\nmatplotlib>=3.10\nscipy>=1.17\npython-docx>=1.2\n"
@@ -70,7 +113,8 @@ if leaked:
 (REL / ".gitignore").write_text(
     "# Never commit derived patient-level data\n"
     "*intermediates*/\ncohort.csv\ninterruptions.csv\nsegments_final.csv\n"
-    "procedures_in_window.csv\nstay_days.csv\n*.gz\n__pycache__/\n*.pyc\n",
+    "procedures_in_window.csv\nstay_days.csv\n*.gz\n__pycache__/\n*.pyc\n"
+    "# derived per-interruption arrays - regenerable from seed 20260807\n*.npy\n",
     encoding="utf-8")
 
 (REL / "LICENSE").write_text(
@@ -146,6 +190,12 @@ python scripts/03_eicu_gate_g6.py         # eICU transportability gate
 python scripts/04_main_analysis.py        # primary analysis
 python scripts/08_strengthen.py           # bootstrap CIs, circular null, deficit share
 python scripts/09_figures_v2.py           # figures
+python scripts/23_locked_null_and_p0.py   # writes locked_referent_draws.npy (seed 20260807)
+python scripts/24_day_preserving_null.py  # complementary across-patient null
+python scripts/26_rate_ci_from_locked.py  # rate CIs from the locked draws
+python scripts/27_canonical.py            # THE single source of truth -> outputs/canonical/
+python scripts/29_p0_diagnostics_canonical.py
+python scripts/22_build_supplement_v2.py  # supplement, rebuilt from canonical
 python scripts/10_verify_references.py    # PubMed reference verification
 python scripts/14_expand_references.py
 python scripts/11_insert_citations.py     # citation numbering + order check
@@ -156,6 +206,14 @@ python scripts/15_build_code_release.py
 ```
 
 `scripts/01` and `scripts/03` are the slow steps (full scans of ~11M and ~12M rows).
+
+**`27_canonical.py` is the one that matters for reproducing the reported numbers.** An
+earlier version of this pipeline let scripts 17, 20 and 23 each seed their own generator,
+which produced several mutually inconsistent estimates of the same quantity. Script 27
+now recomputes the primary estimand, every class, and every sensitivity specification
+from one locked draw set in a single pass, and asserts that the class-level energies sum
+to the primary total before writing anything. Tables that predate it are quarantined
+under `outputs/superseded/` with the value that replaced them.
 
 ## Prespecification
 
@@ -180,9 +238,8 @@ proved biased in our favour, is recorded in `outputs/exploratory_attempts.csv`.
 
 ## Citation
 
-Luo J, Chen Q, Liu J, Lu F, Liang X. Chance co-occurrence inflates procedure attribution
-of enteral nutrition interruption: a placebo-controlled analysis of the ICU energy
-deficit in 6,883 critically ill adults. *Submitted*.
+Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates timestamp
+attribution of ICU nutrition-support interruptions to procedures. *Submitted*.
 
 ## License
 
@@ -190,9 +247,14 @@ MIT (see `LICENSE`). The MIMIC-IV and eICU databases carry their own terms.
 """
 (REL / "README.md").write_text(README, encoding="utf-8")
 
+def _shipped(f):
+    """Files that belong in the manifest/zip: everything except the git metadata."""
+    return f.is_file() and ".git" not in f.relative_to(REL).parts
+
+
 rows = []
 for f in sorted(REL.rglob("*")):
-    if f.is_file():
+    if _shipped(f):
         rows.append({"path": str(f.relative_to(REL)).replace("\\", "/"),
                      "bytes": f.stat().st_size,
                      "sha256": hashlib.sha256(f.read_bytes()).hexdigest()})
@@ -204,7 +266,7 @@ stamp = datetime.now().strftime("%Y-%m-%d")
 zp = ROOT / "08_submission" / f"N2_code_release_{stamp}.zip"
 with zipfile.ZipFile(zp, "w", zipfile.ZIP_DEFLATED) as z:
     for f in sorted(REL.rglob("*")):
-        if f.is_file():
+        if _shipped(f):
             z.write(f, f.relative_to(REL))
 
 print(f"files: {len(rows)}   (denylist violations: 0)")

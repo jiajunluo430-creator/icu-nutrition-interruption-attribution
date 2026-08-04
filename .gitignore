@@ -8,3 +8,5 @@ stay_days.csv
 *.gz
 __pycache__/
 *.pyc
+# derived per-interruption arrays - regenerable from seed 20260807
+*.npy

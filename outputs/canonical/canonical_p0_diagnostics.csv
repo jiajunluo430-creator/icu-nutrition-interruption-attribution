@@ -1,0 +1,4 @@
+variant,obs_kcal,null_kcal,excess_kcal,ci,null_excluded
+P0 priority-assigned (as in the primary analysis),250103,304715,-54612,"-83,405 to -24,813",True
+P0 non-exclusive (any P0 in window),429334,448001,-18667,"-51,660 to 14,828",False
+P0 excluding swallow screening,248851,304176,-55325,"-83,198 to -25,968",True

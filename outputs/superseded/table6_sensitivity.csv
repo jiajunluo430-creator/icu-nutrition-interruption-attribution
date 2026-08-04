@@ -1,0 +1,7 @@
+analysis,metric,value
+energy target 20 kcal/kg,median % of target,46.3
+energy target 25 kcal/kg,median % of target,37.1
+energy target 30 kcal/kg,median % of target,30.9
+attribution window +/-0.5h,chance-corrected attributable pp,11.9
+attribution window +/-1.0h,chance-corrected attributable pp,10.8
+attribution window +/-2.0h,chance-corrected attributable pp,8.5

@@ -1,0 +1,7 @@
+class,label,role,obs_kcal,null_kcal,excess_kcal,excess_ci,pct_of_shortfall
+P1,Airway / sedation,target class,173364,107032,66333,"47,371 to 85,089",0.1022
+P2,GI endoscopic,target class,23227,7290,15937,"7,865 to 24,069",0.0246
+P3,Off-unit transport,target class,254300,220316,33985,"10,829 to 62,540",0.0524
+P4,Bedside invasive,target class,27051,31046,-3996,"-13,270 to 6,891",-0.0062
+P5,Renal replacement,target class,17255,15750,1505,"-6,458 to 9,319",0.0023
+P0,Bedside diagnostics (negative control),negative control (diagnostic),250103,304776,-54673,"-84,326 to -28,779",-0.0842

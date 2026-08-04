@@ -1,0 +1,36 @@
+{
+  "seed": 20260807,
+  "n_replicates": 1000,
+  "n_analysis_set": 5495,
+  "n_excluded_no_referent": 4,
+  "shortfall_total_kcal": 64907890.162655234,
+  "target_obs_kcal": 492112.82525493286,
+  "target_null_kcal": 377452.54468326486,
+  "target_excess_kcal": 114660.28057166803,
+  "target_excess_ci": [
+    81781.73536171738,
+    144698.50477869736
+  ],
+  "target_pct": 0.177,
+  "target_pct_ci": [
+    0.126,
+    0.223
+  ],
+  "target_per_stay": 16.7,
+  "rate": {
+    "obs_pct": 38.9,
+    "null_pct": 29.1,
+    "excess_pp": 9.9,
+    "ci_lo": 8.5,
+    "ci_hi": 11.1,
+    "p": 0.000999000999000999
+  },
+  "p0_energy_excess_kcal": -54612.0,
+  "p0_energy_ci": [
+    -82514.0,
+    -25638.0
+  ],
+  "sensitivity_pct_min": 0.139,
+  "sensitivity_pct_max": 0.344,
+  "day_preserving_pct": 0.342
+}

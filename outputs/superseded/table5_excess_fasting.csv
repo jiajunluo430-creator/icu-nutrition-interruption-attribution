@@ -1,0 +1,7 @@
+proc_class,n,gap_median,excess_median,excess_total,kcal_lost_median,excess_kcal_total,label,defensible_h
+P0,545,9.0,9.0,5335.6,328.5,250102.5,Negative control (bedside diagnostics),0.0
+P1,759,8.5,2.5,3362.4,410.7,173364.5,Airway / sedation,6.0
+P2,67,12.9,6.9,451.3,541.7,23227.1,GI endoscopic,6.0
+P3,681,5.8,5.8,5309.7,250.2,254300.3,Off-unit transport,0.0
+P4,63,7.8,7.8,597.7,283.1,27050.7,Bedside invasive,0.0
+P5,26,10.3,10.3,274.9,412.1,17254.7,Renal replacement,0.0
