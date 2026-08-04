@@ -1,0 +1,9 @@
+{
+  "frozen_utc": "2026-08-03T01:10:52.313093+00:00",
+  "contract": "00_contracts/N2_analysis_contract_v1.md",
+  "contract_sha256": "307a6452c8a3ad171b4c235c1f82361267fbf6617c991c96fe39fa4d4a2c98a4",
+  "itemids_sha256": "8ff6c66a6ea00eb6e6bb925efb8bbab5c2977116b00867eb5be78c4c194cad15",
+  "n_nutrition_itemids": 114,
+  "source_whitelist": "D:\\GI_CHARLS_NHANES\\ND03_refeeding_phosphate_qdp\\config\\mimic_interface_whitelist.csv",
+  "source_whitelist_sha256": "0f802b94fe5e442bb4624a40d00e6ac3da11d0bb71ef3587ee2f1cf0840806fa"
+}

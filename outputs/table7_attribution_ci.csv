@@ -1,0 +1,8 @@
+class,label,observed_pct,observed_ci,null_pct,excess_pp,excess_ci,significant
+ANY,Any prespecified class,38.9,37.5-40.4,30.3,8.7,7.1 to 10.3,True
+P1,Airway / sedation,13.8,12.9-14.8,7.3,6.5,5.4 to 7.6,True
+P2,GI endoscopic,1.4,1.0-1.7,0.8,0.6,0.2 to 1.0,True
+P3,Off-unit transport,14.0,13.1-15.0,9.6,4.4,3.3 to 5.6,True
+P4,Bedside invasive,1.9,1.6-2.3,2.0,-0.1,-0.5 to 0.4,False
+P5,Renal replacement,0.8,0.5-1.0,0.7,0.1,-0.2 to 0.3,False
+P0,Bedside diagnostics (negative control),15.7,14.6-16.7,17.4,-1.7,-3.1 to -0.4,True

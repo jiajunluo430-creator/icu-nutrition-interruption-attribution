@@ -1,0 +1,11 @@
+{
+  "obs_attr_rate": 0.38934351700309144,
+  "placebo_attr_rate": 0.28096017457719585,
+  "n_cohort": 6883,
+  "n_interruptions": 5499,
+  "kcal_density_coverage": 0.9717691520800182,
+  "ercp_travel": 42,
+  "ercp_inunit": 0,
+  "ct_portable": 0,
+  "ct_departmental": 5912
+}

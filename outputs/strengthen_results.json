@@ -1,0 +1,19 @@
+{
+  "null_mean_pct": 28.0,
+  "null_min_pct": 19.1,
+  "null_max_pct": 31.7,
+  "empirical_p": 0.03225806451612903,
+  "excess_vs_circular_null_pp": 10.9,
+  "total_energy_deficit_kcal": 33760021.98531468,
+  "kcal_lost_to_interruptions": 2280335.325122063,
+  "pct_deficit_from_interruptions": 6.8,
+  "avoidable_excess_kcal_validated": 450891.9360372766,
+  "pct_deficit_avoidable_validated": 1.3,
+  "unattributed_n": 3358,
+  "unattributed_pct": 61.1,
+  "unattributed_peak_hour": 0,
+  "unattributed_night_share_pct": 35.1,
+  "unattributed_median_h": 6.0,
+  "avoidable_kcal_per_stay": 66.0,
+  "transport_excess_h_per_affected_event": 5.8
+}

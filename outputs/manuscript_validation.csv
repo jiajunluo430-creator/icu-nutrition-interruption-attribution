@@ -1,0 +1,56 @@
+check,expected,found,pass
+cohort N,6883,True,True
+screened stays,"94,458",True,True
+median age,65 years,True,True
+female pct,43.5%,True,True
+mortality,23.9%,True,True
+ICU-hours denominator,"1,021,294",True,True
+total shortfall,64.9 million kcal,True,True
+shortfall pre,48.5%,True,True
+shortfall running,26.9%,True,True
+shortfall post,10.9%,True,True
+shortfall short,7.0%,True,True
+shortfall othergap,6.8%,True,True
+observed rate,38.9%,True,True
+null rate,29.1%,True,True
+rate excess pp,9.9 percentage points,True,True
+rate excess CI,8.5-11.1,True,True
+empirical p,0.001,True,True
+analysis set,"5,495",True,True
+target observed (assigned),"492,113",True,True
+target null,"377,453",True,True
+target excess,"114,660",True,True
+target CI lo,"81,782",True,True
+target pct,0.18%,True,True
+target per stay,16.7 kcal per ICU,True,True
+sensitivity min,0.14,True,True
+sensitivity max,0.34,True,True
+day-preserving null,0.34%,True,True
+P0 energy value,"54,612",True,True
+class P1 rate,+5.7,True,True
+class P2 rate,+0.6,True,True
+class P3 rate,+5.5,True,True
+class P0 rate,+0.0,True,True
+oral intake pct,5.2% of stays,True,True
+ramped pre-initiation,40.3%,True,True
+superseded value in supplement,"450,892",True,True
+no Python nan in supplement,none,True,True
+assigned not excess,observed **assigned** energy,True,True
+no conservative claim,the primary estimate is conservative,False,True
+no order-of-magnitude error,was an order of magnitude,False,True
+P0 softened,at least partly explained,True,True
+negative control scale qualifier,null **on the,True,True
+oral limitation expanded,may therefore overestimate the total,True,True
+prior work consistent,Some cohort-building inputs,True,True
+AI use statement,Use of generative AI,True,True
+no transport causal wording,nutritional loss attributable,False,True
+reference-target framing,standardized reference target,True,True
+not a preregistration,internally frozen prespecified,True,True
+propofol logic corrected,indeterminate rather than reassuring,True,True
+counterfactual qualifier,bounded by that counterfactual,True,True
+estimand-through-null stated,computed through the null,True,True
+63.4 estimand caveat,not always mutually exclusive,True,True
+no placebo-controlled in title,placebo-controlled,False,True
+REFERENCE LIST PRESENT,## References section,True,True
+reference entries >= 40,>=40,True,True
+References precedes back matter,order,True,True

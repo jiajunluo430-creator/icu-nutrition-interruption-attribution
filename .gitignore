@@ -1,0 +1,10 @@
+# Never commit derived patient-level data
+*intermediates*/
+cohort.csv
+interruptions.csv
+segments_final.csv
+procedures_in_window.csv
+stay_days.csv
+*.gz
+__pycache__/
+*.pyc

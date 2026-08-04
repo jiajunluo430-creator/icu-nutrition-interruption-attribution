@@ -1,0 +1,9 @@
+{
+  "overall_kcal_pct_median": 37.05053749376502,
+  "overall_prot_pct_median": 39.3488215863233,
+  "pct_stay_days_ge80_target": 18.81431931784769,
+  "any_class_observed_pct": 38.9,
+  "any_class_placebo48_pct": 28.1,
+  "chance_corrected_attributable_pct": 10.8,
+  "fraction_of_apparent_attribution_that_is_chance": 0.722
+}

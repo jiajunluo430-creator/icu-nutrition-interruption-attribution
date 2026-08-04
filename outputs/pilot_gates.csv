@@ -1,0 +1,12 @@
+gate,criterion,observed,threshold,pass
+G1,eligible first-ICU stays >= 5000,6883.0,5000.0,True
+G2,nutrition record usability >= 80%,0.997,0.8,True
+G3a,qualifying interruptions >= 5000,5499.0,5000.0,True
+G3b,observed - placebo attribution >= 10 pp,10.84,10.0,True
+G4,native kcal coverage >= 80%,0.9718,0.8,True
+G5a,ERCP travel vs in-unit >= 100 per arm,0.0,100.0,False
+G5b,portable CT vs CT >= 300 per arm,0.0,300.0,False
+G7,negative-control P0 attribution rate (interpretive),0.0991,,
+G6a,eICU >=30 hospitals with >=20 eligible stays,47.0,30.0,True
+G6b,eICU can represent interruption semantics (rate + status),0.0,1.0,False
+G6,eICU overall (G6a AND G6b),0.0,1.0,False

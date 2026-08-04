@@ -1,0 +1,38 @@
+{
+  "eicu_unit_stays": 200859,
+  "los_ge_48h": 77832,
+  "nutrition_volume_rows": 238407,
+  "stays_with_nutrition": 5945,
+  "stays_ge_2_nutrition_days": 5069,
+  "hospitals_with_ge20_eligible_stays": 47,
+  "intakeOutput_columns": [
+    "intakeoutputid",
+    "patientunitstayid",
+    "intakeoutputoffset",
+    "intaketotal",
+    "outputtotal",
+    "dialysistotal",
+    "nettotal",
+    "intakeoutputentryoffset",
+    "cellpath",
+    "celllabel",
+    "cellvaluenumeric",
+    "cellvaluetext"
+  ],
+  "infusionDrug_columns": [
+    "infusiondrugid",
+    "patientunitstayid",
+    "infusionoffset",
+    "drugname",
+    "drugrate",
+    "infusionrate",
+    "drugamount",
+    "volumeoffluid",
+    "patientweight"
+  ],
+  "intakeOutput_has_rate": false,
+  "intakeOutput_has_status": false,
+  "G6a_hospital_coverage_pass": true,
+  "G6b_interruption_semantics_pass": false,
+  "G6_overall_pass": false
+}

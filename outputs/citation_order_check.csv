@@ -1,0 +1,50 @@
+number,key,pmid,cited_for
+1,alberda2009,19572118,"nutritional intake and outcomes, international cohort"
+2,heyland2015,25086472,iatrogenic underfeeding prevalence
+3,bendavid2017,27637833,nutritionDay ICU worldwide practice
+4,orient,41640734,prospective ICU feeding adequacy cohort
+5,tatucu2016,25605706,indirect calorimetry vs predicted energy needs
+6,zusman2016,27832823,resting energy expenditure and outcome
+7,espen2023,37517372,ESPEN ICU nutrition guideline; energy and protein targets
+8,aspen2022,34784064,ASPEN adult critical care nutrition guideline
+9,eden2012,22307571,trophic vs full feeding RCT
+10,permit2015,25992505,permissive underfeeding RCT
+11,target2018,30346225,landmark RCT of energy-dense enteral nutrition
+12,nutrirea2,29128300,enteral vs parenteral early nutrition in shock
+13,nutrirea3,36958363,low vs standard calorie and protein feeding in shock
+14,effort,36708732,higher protein dose RCT
+15,preiser2015,34906215,practical guide to enteral nutrition in the ICU
+16,berger2019,30077342,monitoring nutrition therapy in the ICU
+17,ridley2018,41163099,practice variation in ICU nutrition delivery
+18,phase2026,42500239,phase-specific precision nutrition framework
+19,wischmeyer2018,29149933,nutrition therapy in sepsis
+20,scoping2026,42293184,2026 scoping review reporting 63.4% procedural attribution
+21,peev2015,24714361,prospective study of causes of EN interruption
+22,uozumi2017,28794882,single-centre survey of EN interruption
+23,salciute2021,32896448,interruptions and underfeeding
+24,pepup,20429886,enhanced protein-energy feeding protocol
+25,reignier2013,23321763,gastric residual volume monitoring RCT
+26,daytime2026,41668842,daytime-restricted enteral nutrition protocol
+27,lipsitch,20335814,negative controls for detecting confounding and bias
+28,arnold2016,28027378,negative control outcomes to detect bias
+29,prasad2013,23321761,prespecified falsification endpoints
+30,mimic,36596836,MIMIC-IV database description
+31,earlylate,42375773,early vs delayed EN target trial emulation
+32,dosetransport,42349839,MIMIC-IV nutrition dose transportability
+33,nocturnal2026,41518874,"nocturnal enteral feeding, MIMIC"
+34,vasofi2026,41967579,"vasopressor dose and feeding intolerance, MIMIC"
+35,deepen2026,42323038,reinforcement learning for enteral nutrition
+36,expdef2026,42436975,exposure-definition sensitivity in MIMIC target-trial emulation
+37,hernan,26994063,target-trial framing of observational analyses
+38,strobe,17947786,STROBE reporting guideline
+39,asa2023,36629465,ASA preoperative fasting practice guideline
+40,esicm2017,28168570,ESICM early enteral nutrition guideline
+41,maclure1991,1985444,case-crossover design
+42,mittleman2014,24756878,exchangeability in the case-crossover design
+43,eicu,30204154,eICU database description
+44,parmentier2013,23587445,adverse events during intrahospital transport
+45,schwebel2013,23863225,safety of intrahospital transport
+46,trach2026,41655011,pre-procedure fasting duration before percutaneous tracheostomy
+47,compher2017,28098623,protein and energy intake and mortality
+48,gastricret2026,42337673,gastric retention associated with enteral nutrition
+49,homemade2026,42111855,homemade versus commercial enteral nutrition

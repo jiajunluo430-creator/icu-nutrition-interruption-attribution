@@ -1,0 +1,115 @@
+itemid,label,source_table
+221036,Nutren Renal (Full),icu/inputevents
+221207,Impact (Full),icu/inputevents
+225916,TPN w/ Lipids,icu/inputevents
+225917,TPN without Lipids,icu/inputevents
+225920,Peripheral Parenteral Nutrition,icu/inputevents
+225928,Impact with Fiber (Full),icu/inputevents
+225929,ProBalance (Full),icu/inputevents
+225930,Peptamen 1.5 (Full),icu/inputevents
+225931,Nutren 2.0 (Full),icu/inputevents
+225934,Vivonex (Full),icu/inputevents
+225935,Replete (Full),icu/inputevents
+225936,Replete with Fiber (Full),icu/inputevents
+225937,Ensure (Full),icu/inputevents
+226016,Nutren 2.0 (1/4),icu/inputevents
+226017,Nutren 2.0 (2/3),icu/inputevents
+226018,Nutren 2.0 (3/4),icu/inputevents
+226019,Nutren 2.0 (1/2),icu/inputevents
+226020,Impact (1/4),icu/inputevents
+226021,Impact (2/3),icu/inputevents
+226022,Impact (3/4),icu/inputevents
+226023,Impact (1/2),icu/inputevents
+226024,Impact with Fiber (1/4),icu/inputevents
+226025,Impact with Fiber (2/3),icu/inputevents
+226026,Impact with Fiber (3/4),icu/inputevents
+226027,Impact with Fiber (1/2),icu/inputevents
+226028,Nutren Renal (1/4),icu/inputevents
+226029,Nutren Renal (2/3),icu/inputevents
+226030,Nutren Renal (3/4),icu/inputevents
+226031,Nutren Renal (1/2),icu/inputevents
+226036,Peptamen 1.5 (1/4),icu/inputevents
+226037,Peptamen 1.5 (2/3),icu/inputevents
+226038,Peptamen 1.5 (3/4),icu/inputevents
+226039,Peptamen 1.5 (1/2),icu/inputevents
+226040,ProBalance (1/4),icu/inputevents
+226041,ProBalance (2/3),icu/inputevents
+226042,ProBalance (3/4),icu/inputevents
+226043,ProBalance (1/2),icu/inputevents
+226044,Replete (1/4),icu/inputevents
+226045,Replete (2/3),icu/inputevents
+226046,Replete (3/4),icu/inputevents
+226047,Replete (1/2),icu/inputevents
+226048,Replete with Fiber (1/4),icu/inputevents
+226049,Replete with Fiber (2/3),icu/inputevents
+226050,Replete with Fiber (3/4),icu/inputevents
+226051,Replete with Fiber (1/2),icu/inputevents
+226056,Vivonex (1/4),icu/inputevents
+226057,Vivonex (2/3),icu/inputevents
+226058,Vivonex (3/4),icu/inputevents
+226059,Vivonex (1/2),icu/inputevents
+226875,Ensure (3/4),icu/inputevents
+226876,Ensure (1/2),icu/inputevents
+226877,Ensure Plus (Full),icu/inputevents
+226878,Ensure Plus (3/4),icu/inputevents
+226879,Ensure Plus (1/2),icu/inputevents
+226880,Nutren Pulmonary (Full),icu/inputevents
+226881,Nutren Pulmonary (3/4),icu/inputevents
+226882,Nutren Pulmonary (1/2),icu/inputevents
+227091,Ensure (1/4),icu/inputevents
+227092,Ensure Plus (1/4),icu/inputevents
+227370,Peptamen VHP (Full),icu/inputevents
+227371,Peptamen VHP (3/4),icu/inputevents
+227372,Peptamen VHP (2/3),icu/inputevents
+227373,Peptamen VHP (1/4),icu/inputevents
+227374,Peptamen VHP (1/2),icu/inputevents
+227518,Nutren 2.0 (3/4),icu/inputevents
+227695,Fibersource HN (Full),icu/inputevents
+227696,Fibersource HN (3/4),icu/inputevents
+227697,Fibersource HN (2/3),icu/inputevents
+227698,Fibersource HN (1/2),icu/inputevents
+227699,Fibersource HN (1/4),icu/inputevents
+227972,NovaSource Renal (1/4),icu/inputevents
+227973,NovaSource Renal (1/2),icu/inputevents
+227974,NovaSource Renal (3/4),icu/inputevents
+227975,NovaSource Renal (Full),icu/inputevents
+227976,Boost Glucose Control (1/4),icu/inputevents
+227977,Boost Glucose Control (1/2),icu/inputevents
+227978,Boost Glucose Control (3/4),icu/inputevents
+227979,Boost Glucose Control (Full),icu/inputevents
+228131,Isosource 1.5 (1/2),icu/inputevents
+228132,Isosource 1.5 (1/4),icu/inputevents
+228133,Isosource 1.5 (2/3),icu/inputevents
+228134,Isosource 1.5 (3/4),icu/inputevents
+228135,Isosource 1.5 (Full),icu/inputevents
+228348,Nepro (1/2),icu/inputevents
+228349,Nepro (1/4),icu/inputevents
+228350,Nepro (3/4),icu/inputevents
+228351,Nepro (Full),icu/inputevents
+228352,Enlive (1/2),icu/inputevents
+228353,Enlive (1/4),icu/inputevents
+228354,Enlive (3/4),icu/inputevents
+228355,Enlive (Full),icu/inputevents
+228356,Glucerna (1/2),icu/inputevents
+228357,Glucerna (1/4),icu/inputevents
+228358,Glucerna (3/4),icu/inputevents
+228359,Glucerna (Full),icu/inputevents
+228360,Pulmocare (1/2),icu/inputevents
+228361,Pulmocare (1/4),icu/inputevents
+228362,Pulmocare (3/4),icu/inputevents
+228363,Pulmocare (Full),icu/inputevents
+228364,Two Cal HN (1/2),icu/inputevents
+228365,Two Cal HN (1/4),icu/inputevents
+228366,Two Cal HN (3/4),icu/inputevents
+228367,Two Cal HN (Full),icu/inputevents
+228383,Peptamen Bariatric (Full),icu/inputevents
+229009,Promote (Full),icu/inputevents
+229010,Jevity 1.2 (Full),icu/inputevents
+229011,Jevity 1.5 (Full),icu/inputevents
+229012,Vital 1.5 (Full),icu/inputevents
+229013,Glucerna 1.2 (Full),icu/inputevents
+229014,Promote with Fiber (Full),icu/inputevents
+229294,Ensure Clear (Full),icu/inputevents
+229295,Glucerna 1.5 (Full),icu/inputevents
+229296,Vital High Protein (Full),icu/inputevents
+229297,Osmolite 1.5 (Full),icu/inputevents

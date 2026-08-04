@@ -1,0 +1,13 @@
+step,n
+ICU stays in MIMIC-IV,94458
+age >= 18,94458
+first ICU stay per subject,65366
+ICU LOS >= 48 h,31143
+raw nutrition rows,241118
+"valid rate>0, mL, ordered times",240428
+inside observation window of an eligible stay,73068
+plausible recorded weight 30-300 kg,72840
+stays with >= 2 nutrition days (G1 cohort),6883
+segments in final cohort,70384
+"qualifying interruptions (>=2h, <=24h, Paused/Stopped)",5499
+procedure events inside observation windows,37340
