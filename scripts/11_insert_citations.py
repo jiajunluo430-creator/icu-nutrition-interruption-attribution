@@ -85,8 +85,10 @@ if "## References" not in t:
 MS.write_text(t, encoding="utf-8")
 
 # ---- verify strict sequential ordering (body only; exclude the reference list,
-# whose "(2015)" year fields would otherwise be read as citation numbers)
+# whose "(2015)" year fields would otherwise be read as citation numbers, and table
+# rows, whose "(53-76)" IQRs look exactly like a citation range)
 body = t.split("\n## References\n", 1)[0]
+body = "\n".join(l for l in body.split("\n") if not l.lstrip().startswith("|"))
 N = len(order)
 cites = []
 for m in re.finditer(r"\((\d+(?:[,\u2013\s]+\d+)*)\)", body):

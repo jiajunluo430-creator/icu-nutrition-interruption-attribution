@@ -52,6 +52,9 @@ _orphans = [v for v in ("113,763", "114,058", "114,220", "114,317", "60,135")
             if v in ms or v in _sup_live or v in _cov]
 
 body = ms.split("\n## References\n", 1)[0]
+# markdown table rows carry parenthesised IQRs like "(53-76)" that look exactly like a
+# citation range to the scanner below; strip them before counting citations
+body = "\n".join(l for l in body.split("\n") if not l.lstrip().startswith("|"))
 nrefs = len(refs)
 cited = set()
 for m in re.finditer(r"\((\d+(?:[,\u2013\s]+\d+)*)\)", body):
@@ -85,7 +88,7 @@ checks = [
     ("estimand run through null", "computed through the null" in ms, "yes"),
     ("repository URL present, no placeholder",
      "[REPOSITORY DOI]" not in ms and "github.com/jiajunluo430-creator" in ms,
-     "public repo + v1.0.0 release; Zenodo DOI to be minted"),
+     "public repo + v1.0.2 release; Zenodo DOI to be minted"),
     ("cover letter date filled", "[Date]" not in _cov, "3 August 2026"),
     ("no outcome model claimed", "no outcome association of any kind was estimated" in ms, "yes"),
     ("post-freeze registry complete",
@@ -119,8 +122,8 @@ out = [
     "", "## Automated QA", "",
     qa.assign(**{"pass": qa["pass"].map({True: "PASS", False: "FAIL"})}).to_markdown(index=False),
     "", "## Before upload", "",
-    "- [x] Code deposited: https://github.com/jiajunluo430-creator/icu-nutrition-interruption-attribution (v1.0.0)",
-    "- [ ] Mint a Zenodo DOI from the v1.0.0 release and add it to Data availability",
+    "- [x] Code deposited: https://github.com/jiajunluo430-creator/icu-nutrition-interruption-attribution (v1.0.2)",
+    "- [ ] Mint a Zenodo DOI from the v1.0.2 release and add it to Data availability",
     "- [ ] ORCIDs for all five authors",
     "- [ ] Confirm abstract word count in Word against the Frontiers 350-word limit",
     "- [ ] Confirm current institutional recognition status of Frontiers in Nutrition",
