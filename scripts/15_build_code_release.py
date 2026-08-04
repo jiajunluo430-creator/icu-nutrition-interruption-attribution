@@ -15,7 +15,11 @@ from pathlib import Path
 ROOT = Path(r"D:\N2_icu_nutrition_delivery_gap")
 REL = ROOT / "09_code_release"
 if REL.exists():
-    shutil.rmtree(REL)
+    # never delete .git - the release dir is a working git repo pushed to GitHub
+    for _p in REL.iterdir():
+        if _p.name == ".git":
+            continue
+        shutil.rmtree(_p) if _p.is_dir() else _p.unlink()
 
 # --- files that contain row-level, patient-linked records: never publish
 DENY = {
@@ -89,18 +93,30 @@ if leaked:
     encoding="utf-8")
 
 gates = list(csv.DictReader(open(ROOT / "03_outputs" / "pilot_gates.csv", encoding="utf-8")))
-README = f"""# Chance co-occurrence inflates procedure attribution of enteral nutrition interruption
+README = f"""# Background co-occurrence inflates timestamp attribution of ICU nutrition-support interruptions to procedures
 
 Analysis code for the manuscript submitted to *Frontiers in Nutrition* (Clinical
-Nutrition).
+Nutrition), 3 August 2026.
 
 **Short version of the finding.** In 6,883 first ICU stays from MIMIC-IV v3.1, 38.9% of
 charted enteral/parenteral feeding interruptions had a clinical procedure in the
-attribution window. Under a circular within-stay time shift that destroys true temporal
-correspondence while preserving procedure density, 30.3% still did. The chance-corrected
-excess is 8.7 percentage points (95% CI 7.1-10.3), so most apparent attribution is
-chance. Procedure-related interruption explains 1.3% of the cohort's total energy
-deficit.
+attribution window. Under a within-stay case-crossover null that relocates each
+interruption by whole ICU days while preserving clock hour, 29.1% still
+did, an excess of 9.9 percentage points
+(95% CI 8.5-11.1). Running the energy estimand through
+the same null gives a chance-corrected procedural burden of
+114,660 kcal
+(95% CI 81,782-144,699) =
+**0.177% of the standardized first-week shortfall**, or
+16.7 kcal per ICU stay
+(0.14-0.34% across sensitivity
+specifications; 0.34% under a complementary across-patient null
+that preserves ICU day instead of patient identity).
+
+All reported values derive from a single canonical output set
+(`outputs/canonical/`) generated once from a locked referent draw set
+(seed 20260807, 1,000 replicates), with assertions verifying that
+class-level energies sum exactly to the primary totals.
 
 ## What is and is not here
 

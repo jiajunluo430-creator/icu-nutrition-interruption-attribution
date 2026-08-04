@@ -82,8 +82,10 @@ checks = [
     ("superseded estimate disclosed in supplement",
      "450,892" in (MAN / "supplement.md").read_text(encoding="utf-8"), "yes"),
     ("estimand run through null", "computed through the null" in ms, "yes"),
-    ("DOI placeholder replaced", "[REPOSITORY DOI]" not in ms,
-     "BLOCKER: replace [REPOSITORY DOI] before upload"),
+    ("repository URL present, no placeholder",
+     "[REPOSITORY DOI]" not in ms and "github.com/jiajunluo430-creator" in ms,
+     "public repo + v1.0.0 release; Zenodo DOI to be minted"),
+    ("cover letter date filled", "[Date]" not in _cov, "3 August 2026"),
     ("no outcome model claimed", "no outcome association of any kind was estimated" in ms, "yes"),
     ("post-freeze registry complete", len(reg) >= 16, f"{len(reg)} entries E01-E16"),
     ("gates recorded", len(gates) >= 11, f"{len(gates)} gates"),
@@ -114,7 +116,8 @@ out = [
     "", "## Automated QA", "",
     qa.assign(**{"pass": qa["pass"].map({True: "PASS", False: "FAIL"})}).to_markdown(index=False),
     "", "## Before upload", "",
-    "- [ ] **Replace `[REPOSITORY DOI]`** in the Data availability statement (Manuscript.docx)",
+    "- [x] Code deposited: https://github.com/jiajunluo430-creator/icu-nutrition-interruption-attribution (v1.0.0)",
+    "- [ ] Mint a Zenodo DOI from the v1.0.0 release and add it to Data availability",
     "- [ ] ORCIDs for all five authors",
     "- [ ] Confirm abstract word count in Word against the Frontiers 350-word limit",
     "- [ ] Confirm current institutional recognition status of Frontiers in Nutrition",
@@ -148,7 +151,8 @@ out = [
     f"Sensitivity range {CANJ['sensitivity_pct_min']:.2f}-{CANJ['sensitivity_pct_max']:.2f}%; "
     f"complementary across-patient null {CANJ['day_preserving_pct']:.2f}%.",
     "",
-    f"Post-freeze decision registry: {len(reg)} entries (E01-E25).",
+    f"Post-freeze decision registry: {len(reg)} entries "
+f"(E01-E{len(reg):02d}).",
     "",
 ]
 (PKG / "SUBMISSION_CHECKLIST.md").write_text("\n".join(out), encoding="utf-8")
