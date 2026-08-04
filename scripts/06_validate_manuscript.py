@@ -115,14 +115,27 @@ checks.append({"check": "References precedes back matter", "expected": "order",
                "found": MS.index("## References") < MS.index("## Data availability"),
                "pass": MS.index("## References") < MS.index("## Data availability")})
 
+def wordcount(s):
+    """Count the way Word does: whitespace-delimited tokens, markdown stripped.
+
+    A regex over word characters splits kcal/kg/day and airway/sedation into three
+    tokens each and disagrees with the figure an editor sees, which is the one the
+    350-word abstract cap is enforced against.
+    """
+    s = re.sub(r"\{\{[^}]*\}\}", "", re.sub(r"[*`]", "", s))
+    return sum(1 for w in s.split() if re.search(r"[A-Za-z0-9]", w))
+
+
+body = MS.split("## 1 Introduction", 1)[1].split("## References", 1)[0]
+words = wordcount(body)
+abstract = MS.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
+aw = wordcount(abstract)
+checks.append({"check": "abstract <= 350 words (Frontiers cap)", "expected": "<=350",
+               "found": aw, "pass": aw <= 350})
+
 df = pd.DataFrame(checks)
 df.to_csv(OUT / "manuscript_validation.csv", index=False)
 
-body = MS.split("## 1 Introduction", 1)[1].split("## References", 1)[0]
-words = len(re.findall(r"\b[\w'\u2019-]+\b", body))
-abstract = MS.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0]
-abstract = re.sub(r"\*\*(Background|Methods|Results|Conclusion)\.\*\*", "", abstract)
-aw = len(re.findall(r"\b[\w'\u2019-]+\b", abstract))
 print(df.to_string(index=False))
 print(f"\nPASS {int(df['pass'].sum())}/{len(df)}")
 print(f"main text (Introduction->Conclusion): {words} words")

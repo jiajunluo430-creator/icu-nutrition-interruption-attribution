@@ -54,3 +54,4 @@ no placebo-controlled in title,placebo-controlled,False,True
 REFERENCE LIST PRESENT,## References section,True,True
 reference entries >= 40,>=40,True,True
 References precedes back matter,order,True,True
+abstract <= 350 words (Frontiers cap),<=350,339,True

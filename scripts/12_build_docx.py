@@ -242,7 +242,8 @@ for c in CORR:
 
 import re as _re
 _body_txt = body.split("## 1 Introduction", 1)[1].split("## References", 1)[0]
-_words = len(_re.findall(r"[A-Za-z0-9][A-Za-z0-9'’-]*", _re.sub(r"\{\{[^}]*\}\}", "", _body_txt)))
+_clean = _re.sub(r"[*`]", "", _re.sub(r"\{\{[^}]*\}\}", "", _body_txt))
+_words = sum(1 for w in _clean.split() if _re.search(r"[A-Za-z0-9]", w))  # Word-equivalent
 _nfig = len(_re.findall(r"^\*\*Figure \d", body, _re.M))
 _ntab = len(_re.findall(r"^\*\*Table \d", body, _re.M))
 

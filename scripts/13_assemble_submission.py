@@ -40,6 +40,7 @@ val = pd.read_csv(OUT / "manuscript_validation.csv")
 refs = pd.read_csv(OUT / "references_verified.csv")
 gates = pd.read_csv(OUT / "pilot_gates.csv")
 reg = pd.read_csv(OUT / "exploratory_attempts.csv")
+_reg_ids = sorted(reg["attempt"].astype(str))
 CANJ = json.load(open(OUT / "canonical" / "canonical_primary.json"))
 _sup = (MAN / "supplement.md").read_text(encoding="utf-8")
 _cov = (MAN / "cover_letter_frontnutr.md").read_text(encoding="utf-8")
@@ -87,7 +88,9 @@ checks = [
      "public repo + v1.0.0 release; Zenodo DOI to be minted"),
     ("cover letter date filled", "[Date]" not in _cov, "3 August 2026"),
     ("no outcome model claimed", "no outcome association of any kind was estimated" in ms, "yes"),
-    ("post-freeze registry complete", len(reg) >= 16, f"{len(reg)} entries E01-E16"),
+    ("post-freeze registry complete",
+     len(reg) >= 16 and _reg_ids == [f"E{i:02d}" for i in range(1, len(reg) + 1)],
+     f"{len(reg)} entries {_reg_ids[0]}-{_reg_ids[-1]}, no gaps"),
     ("gates recorded", len(gates) >= 11, f"{len(gates)} gates"),
     ("4 figures present (tif+pdf)",
      all((PKG / f"Figure{i}.{ext}").exists() for i in range(1, 5) for ext in ("tif", "pdf")), "yes"),

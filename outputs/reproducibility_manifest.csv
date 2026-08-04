@@ -14,9 +14,9 @@ file,bytes,sha256
 01_scripts/10_verify_references.py,6946,c86d6b410bf5b7ba
 01_scripts/11_insert_citations.py,4804,124cd04f6b1be7f3
 01_scripts/12_build_docx.py,10809,f1f87968e33d5efa
-01_scripts/13_assemble_submission.py,9122,6c6fa8988b4c15f2
+01_scripts/13_assemble_submission.py,9391,27c26e3bb559b902
 01_scripts/14_expand_references.py,4494,4dc9f83bd409a942
-01_scripts/15_build_code_release.py,9168,03461a3ea35e546d
+01_scripts/15_build_code_release.py,13524,233e2993fc43c763
 01_scripts/16_revision_analysis.py,11639,0b69e2d89bfa3cd0
 01_scripts/17_revision_sensitivity.py,6235,0df73462f4960996
 01_scripts/18_rate_under_primary_null.py,5275,cbd31804f45dc51f
@@ -47,7 +47,7 @@ file,bytes,sha256
 03_outputs/references_failed.csv,22,c35763d573f405c9
 03_outputs/references_verified.csv,16582,9b15b2b02a010cc4
 03_outputs/references_verified_base16.csv,5623,1ca4b9a686e798ea
-03_outputs/reproducibility_manifest.csv,3806,298a5ba5982a5f4b
+03_outputs/reproducibility_manifest.csv,3806,b129e888e21e728f
 03_outputs/rev2_results.json,695,e0e8fd67555ae830
 03_outputs/rev3_day_preserving_null.json,424,e00b07dfe0d64a00
 03_outputs/rev3_p0_diagnostics.csv,305,19cc6890661972ad
