@@ -1,0 +1,7 @@
+{
+  "contract": "N2_external_validation_contract_v1.md",
+  "sha256": "ca02b0d6ef8fdec3b65e549cb7c8d6ead9b4d41cf0f14e93a8c1e2f49af44923",
+  "frozen_utc": "2026-08-05T21:31:46+00:00",
+  "parent": "N2_analysis_contract_v1.md",
+  "parent_sha256": "307a6452c8a3ad171b4c235c1f82361267fbf6617c991c96fe39fa4d4a2c98a4"
+}

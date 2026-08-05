@@ -1,0 +1,6 @@
+class,label,n,median_h_to_resumption,iqr,pct_resumed_within_2h,pct_resumed_within_4h,pct_resumed_within_6h,pct_beyond_defensible
+P1,Airway / sedation,741,4.0,2.1-6.6,23.6,51.4,68.3,31.7
+P2,GI endoscopic,67,2.8,1.7-5.1,35.8,59.7,77.6,22.4
+P3,Off-unit transport,658,2.4,1.4-4.7,43.0,70.1,82.8,
+P4,Bedside invasive,59,2.4,1.5-5.0,44.1,66.1,83.1,
+P0,Bedside diagnostics (negative control),498,4.4,2.0-8.5,25.3,46.4,63.3,

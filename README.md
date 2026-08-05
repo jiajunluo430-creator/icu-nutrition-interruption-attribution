@@ -1,27 +1,37 @@
-# Background co-occurrence inflates timestamp attribution of ICU nutrition-support interruptions to procedures
+# Background co-occurrence inflates procedure attribution of feeding interruptions in the ICU
 
-Analysis code for the manuscript submitted to *Frontiers in Nutrition* (Clinical
-Nutrition), 3 August 2026.
+Analysis code for a two-database study of MIMIC-IV v3.1 and eICU-CRD v2.0.
 
-**Short version of the finding.** In 6,883 first ICU stays from MIMIC-IV v3.1, 38.9% of
-charted enteral/parenteral feeding interruptions had a clinical procedure in the
-attribution window. Under a within-stay case-crossover null that relocates each
-interruption by whole ICU days while preserving clock hour, 29.1% still
-did, an excess of 9.9 percentage points
-(95% CI 8.5-11.1). Running the energy estimand through
-the same null gives a chance-corrected procedural burden of
-114,660 kcal
+**The finding.** Feeding interruptions in the ICU are routinely attributed to procedures
+because the two happened close together in time. In 6,883 MIMIC-IV first ICU stays, 38.9%
+of charted interruptions had a procedure within +/-1 h. At matched control times in the
+same stay, relocated by whole ICU days so the time of day is preserved but any true
+correspondence destroyed, 29.1% still did: an excess of only
+9.9 percentage points (95% CI 8.5-11.1).
+Applying the same correction to energy gives 114,660 kcal
 (95% CI 81,782-144,699) =
 **0.177% of the standardized first-week shortfall**, or
 16.7 kcal per ICU stay
-(0.14-0.34% across sensitivity
-specifications; 0.34% under a complementary across-patient null
-that preserves ICU day instead of patient identity).
+(0.14-0.34% across specifications).
 
-All reported values derive from a single canonical output set
-(`outputs/canonical/`) generated once from a locked referent draw set
-(seed 20260807, 1,000 replicates), with assertions verifying that
-class-level energies sum exactly to the primary totals.
+**External validation.** eICU-CRD cannot define feeding interruptions (no infusion rate,
+no paused/stopped status), but the background rate is a property of procedure density, not
+of nutrition records. Across 63,703 stays in 206 hospitals
+it was 6.7% (95% CI 6.5-6.8),
+against a like-for-like MIMIC-IV rate of 8.1%, and
+7.7% among the 92 best-documenting
+hospitals. But between hospitals it spans
+0.8-22.9% (10th-90th centile) even after
+accounting for documentation completeness, so raw attribution percentages are not
+comparable across units. Documentation itself lagged events by a median
+49 min, exceeding 1 h in 43.7% of
+paired nursing records - the same magnitude as the attribution window.
+
+All reported values derive from a single canonical output set (`outputs/canonical/`)
+generated once from a locked referent draw set (seed 20260807, 1,000
+replicates), with assertions verifying that class-level energies sum exactly to the
+primary totals. Two analysis plans were frozen and SHA-256 hashed before the estimates
+they govern were computed (`contract/`).
 
 ## What is and is not here
 
@@ -106,8 +116,9 @@ proved biased in our favour, is recorded in `outputs/exploratory_attempts.csv`.
 
 ## Citation
 
-Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates timestamp
-attribution of ICU nutrition-support interruptions to procedures. *Submitted*.
+Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates procedure
+attribution of feeding interruptions in the ICU: a matched-time analysis of two
+critical care databases. *Submitted*.
 
 ## License
 

@@ -73,7 +73,10 @@ for f in sorted((ROOT / "03_outputs" / "canonical").glob("*")):
 for f in sorted((ROOT / "03_outputs" / "_superseded").glob("*")):
     shutil.copy(f, REL / "outputs" / "superseded" / f.name); copied.append(f.name)
 for n in ("rev3_day_preserving_null.json", "rev3_p0_diagnostics.csv",
-          "rate_ci_locked.json"):
+          "rate_ci_locked.json", "eicu_interface_audit.json",
+          "eicu_background_rate.json", "eicu_ascertainment_diagnostic.json",
+          "eicu_background_by_hospital.csv", "eicu_hospital_ascertainment.csv",
+          "eicu_hospital_stay_counts.csv", "critcare_validation.csv"):
     src = ROOT / "03_outputs" / n
     if src.exists():
         shutil.copy(src, REL / "outputs" / n); copied.append(n)
@@ -136,31 +139,46 @@ if struct:
     "WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n",
     encoding="utf-8")
 
+import json as _json
 gates = list(csv.DictReader(open(ROOT / "03_outputs" / "pilot_gates.csv", encoding="utf-8")))
-README = f"""# Background co-occurrence inflates timestamp attribution of ICU nutrition-support interruptions to procedures
+C = _json.load(open(ROOT / "03_outputs" / "canonical" / "canonical_primary.json"))
+EB = _json.load(open(ROOT / "03_outputs" / "eicu_background_rate.json"))
+EA = _json.load(open(ROOT / "03_outputs" / "eicu_ascertainment_diagnostic.json"))
+EI = _json.load(open(ROOT / "03_outputs" / "eicu_interface_audit.json"))
+README = f"""# Background co-occurrence inflates procedure attribution of feeding interruptions in the ICU
 
-Analysis code for the manuscript submitted to *Frontiers in Nutrition* (Clinical
-Nutrition), 3 August 2026.
+Analysis code for a two-database study of MIMIC-IV v3.1 and eICU-CRD v2.0.
 
-**Short version of the finding.** In 6,883 first ICU stays from MIMIC-IV v3.1, 38.9% of
-charted enteral/parenteral feeding interruptions had a clinical procedure in the
-attribution window. Under a within-stay case-crossover null that relocates each
-interruption by whole ICU days while preserving clock hour, 29.1% still
-did, an excess of 9.9 percentage points
-(95% CI 8.5-11.1). Running the energy estimand through
-the same null gives a chance-corrected procedural burden of
-114,660 kcal
-(95% CI 81,782-144,699) =
-**0.177% of the standardized first-week shortfall**, or
-16.7 kcal per ICU stay
-(0.14-0.34% across sensitivity
-specifications; 0.34% under a complementary across-patient null
-that preserves ICU day instead of patient identity).
+**The finding.** Feeding interruptions in the ICU are routinely attributed to procedures
+because the two happened close together in time. In 6,883 MIMIC-IV first ICU stays, 38.9%
+of charted interruptions had a procedure within +/-1 h. At matched control times in the
+same stay, relocated by whole ICU days so the time of day is preserved but any true
+correspondence destroyed, {C["rate"]["null_pct"]}% still did: an excess of only
+{C["rate"]["excess_pp"]} percentage points (95% CI {C["rate"]["ci_lo"]}-{C["rate"]["ci_hi"]}).
+Applying the same correction to energy gives {C["target_excess_kcal"]:,.0f} kcal
+(95% CI {C["target_excess_ci"][0]:,.0f}-{C["target_excess_ci"][1]:,.0f}) =
+**{C["target_pct"]}% of the standardized first-week shortfall**, or
+{C["target_per_stay"]} kcal per ICU stay
+({C["sensitivity_pct_min"]:.2f}-{C["sensitivity_pct_max"]:.2f}% across specifications).
 
-All reported values derive from a single canonical output set
-(`outputs/canonical/`) generated once from a locked referent draw set
-(seed 20260807, 1,000 replicates), with assertions verifying that
-class-level energies sum exactly to the primary totals.
+**External validation.** eICU-CRD cannot define feeding interruptions (no infusion rate,
+no paused/stopped status), but the background rate is a property of procedure density, not
+of nutrition records. Across {EB["eicu_stays"]:,} stays in {EI["hospitals_total"]} hospitals
+it was {EB["eicu_background_pct"]}% (95% CI {EB["eicu_background_ci"][0]}-{EB["eicu_background_ci"][1]}),
+against a like-for-like MIMIC-IV rate of {EB["mimic_p1_background_pct"]}%, and
+{EA["restricted_median_pct"]}% among the {EA["restricted_n_hospitals"]} best-documenting
+hospitals. But between hospitals it spans
+{EA["restricted_p10_p90"][0]}-{EA["restricted_p10_p90"][1]}% (10th-90th centile) even after
+accounting for documentation completeness, so raw attribution percentages are not
+comparable across units. Documentation itself lagged events by a median
+{EI["doc_lag_median_min"]:.0f} min, exceeding 1 h in {EI["doc_lag_pct_over_60min"]}% of
+paired nursing records - the same magnitude as the attribution window.
+
+All reported values derive from a single canonical output set (`outputs/canonical/`)
+generated once from a locked referent draw set (seed {C["seed"]}, {C["n_replicates"]:,}
+replicates), with assertions verifying that class-level energies sum exactly to the
+primary totals. Two analysis plans were frozen and SHA-256 hashed before the estimates
+they govern were computed (`contract/`).
 
 ## What is and is not here
 
@@ -238,8 +256,9 @@ proved biased in our favour, is recorded in `outputs/exploratory_attempts.csv`.
 
 ## Citation
 
-Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates timestamp
-attribution of ICU nutrition-support interruptions to procedures. *Submitted*.
+Luo J, Chen Q, Liu J, Lu F, Liang X. Background co-occurrence inflates procedure
+attribution of feeding interruptions in the ICU: a matched-time analysis of two
+critical care databases. *Submitted*.
 
 ## License
 

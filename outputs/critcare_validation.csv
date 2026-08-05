@@ -1,0 +1,72 @@
+check,expected,pass
+primary excess kcal,"114,660",True
+primary CI low,"81,782",True
+primary CI high,"144,699",True
+primary per stay,16.7,True
+analysis set n,"5,495",True
+observed rate,38.9,True
+background rate,29.1,True
+excess pp,9.9,True
+rate CI,8.5–11.1,True
+target obs kcal,"492,113",True
+target null kcal,"377,453",True
+sensitivity min,0.139,True
+sensitivity max,0.344,True
+day-preserving pct,0.34,True
+P1 rate excess pp,+5.7 pp,True
+P3 rate excess pp,+5.5 pp,True
+P2 rate excess pp,+0.6 pp,True
+P0 energy excess,"−54,612",True
+era count in Table 2,5,True
+era excess pp min,7.7,True
+era excess pp max,11.7,True
+era pct min,0.090,True
+era pct max,0.207,True
+era observed min,34.3,True
+era observed max,43.5,True
+era background min,26.6,True
+era background max,33.6,True
+eICU stays,"63,703",True
+eICU windows,"305,932",True
+eICU background pct,6.7,True
+eICU background CI,6.5–6.8,True
+MIMIC P1 background,8.1,True
+MIMIC P1 observed,13.8,True
+MIMIC P1 excess pp,5.7,True
+eICU hospitals >=20 stays,182,True
+eICU hospitals total,206,True
+restricted hospital count,92,True
+restricted median rate,7.7,True
+restricted p10-p90,0.8% to 22.9%,True
+ascertainment r,0.593,True
+ascertainment variance explained,35%,True
+ascertainment max,86.4,True
+doc lag median,49 min,True
+doc lag p95,303 min,True
+doc lag pct over 1h,43.7,True
+doc lag paired records,"5,137,438",True
+stays with zero burden,67.5,True
+stays negative,18.0,True
+stays positive,14.5,True
+gross positive,"304,074",True
+gross negative,"189,414",True
+top decile kcal,"284,249",True
+top decile share,93.5,True
+pct over 100,10.8,True
+pct over 250,6.3,True
+pct over 500,2.7,True
+max burden,"2,195",True
+P1 median recovery,4.0 h,True
+P1 beyond defensible,31.7,True
+P3 median recovery,2.4 h,True
+P3 within 6h,82.8,True
+P0 median recovery,4.4 h,True
+P0 within 2h,25.3,True
+two-database patient total,"70,586",True
+external contract hash cited in supplement plan,SHA-256,True
+no outcome model claimed,-,True
+eICU energy explicitly not attempted,-,True
+spread not read as care quality,-,True
+References precedes Declarations,-,True
+reference entries,49,True
+abstract <= 350 words (Critical Care),349,True

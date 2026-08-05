@@ -1,0 +1,77 @@
+{
+  "unit_stays_total": 200859,
+  "cohort_stays": 63703,
+  "hospitals_total": 206,
+  "hospitals_ge20_stays": 182,
+  "stay_days_total": 341139.6,
+  "doc_lag_n": 5137438,
+  "doc_lag_median_min": 49.0,
+  "doc_lag_p75_min": 117.0,
+  "doc_lag_p95_min": 303.0,
+  "doc_lag_pct_over_60min": 43.7,
+  "nursecare_nutrition_rows": 209402,
+  "airway_rows_raw": 671013,
+  "airway_events": 7644,
+  "airway_stays": 6066,
+  "airway_dedup_ratio": 87.8,
+  "sedation_rows_raw": 1201428,
+  "sedation_events": 100640,
+  "sedation_stays": 14903,
+  "sedation_dedup_ratio": 11.9,
+  "sedation_restart_gap_min": 240,
+  "distinct_drugnames": 2391,
+  "tx_renal_replacement_events": 20491,
+  "tx_renal_replacement_stays": 3865,
+  "tx_gi_endoscopy_events": 17142,
+  "tx_gi_endoscopy_stays": 3432,
+  "tx_surgery_events": 36238,
+  "tx_surgery_stays": 9020,
+  "treatment_timing_semantics": "unverifiable (no entry offset); excluded from primary",
+  "mimic_p1_per_stay_day": 0.271,
+  "airway_per_stay_day": 0.022,
+  "sedation_per_stay_day": 0.295,
+  "harmonized_per_stay_day": 0.317,
+  "density_ratio_eicu_over_mimic": 1.17,
+  "stays_with_any_airway_event": 6066,
+  "pct_stays_with_airway": 9.5,
+  "pct_stays_with_sedation": 23.4,
+  "gates": [
+    {
+      "gate": "E1",
+      "criterion": "cohort stays >= 20,000",
+      "observed": 63703,
+      "pass": true
+    },
+    {
+      "gate": "E2",
+      "criterion": "hospitals with >=20 stays >= 100",
+      "observed": 182,
+      "pass": true
+    },
+    {
+      "gate": "E3a",
+      "criterion": "airway events (real event time) >= 5,000",
+      "observed": 7644,
+      "pass": true
+    },
+    {
+      "gate": "E3b",
+      "criterion": "sedation events (real event time) >= 5,000",
+      "observed": 100640,
+      "pass": true
+    },
+    {
+      "gate": "E4",
+      "criterion": "documentation lag measurable",
+      "observed": 5137438,
+      "pass": true
+    },
+    {
+      "gate": "E5",
+      "criterion": "density within 3x of MIMIC P1 (0.271/stay-day)",
+      "observed": 0.317,
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

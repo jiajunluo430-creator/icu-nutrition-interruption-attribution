@@ -1,0 +1,10 @@
+care_unit,stays,mean_kcal_per_stay,p90_kcal,pct_over_250
+Coronary Care Unit (CCU),398,40.8,109.4,7.5
+Neuro Surgical Intensive Care Unit (Neuro SICU),265,29.4,189.1,7.5
+Cardiac Vascular Intensive Care Unit (CVICU),390,24.8,114.6,5.6
+Medical/Surgical Intensive Care Unit (MICU/SICU),938,20.6,106.5,5.4
+Surgical Intensive Care Unit (SICU),1311,16.0,116.6,6.2
+Medical Intensive Care Unit (MICU),1747,15.5,100.9,5.8
+Trauma SICU (TSICU),1171,8.3,141.4,7.0
+Neuro Intermediate,417,7.5,167.8,8.2
+Neuro Stepdown,129,2.2,172.8,7.0

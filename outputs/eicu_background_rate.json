@@ -1,0 +1,56 @@
+{
+  "contract_sha256": "ca02b0d6ef8fdec3b65e549cb7c8d6ead9b4d41cf0f14e93a8c1e2f49af44923",
+  "seed": 20260805,
+  "windows_per_stay": 5,
+  "eicu_stays": 63703,
+  "eicu_windows": 305932,
+  "eicu_background_pct": 6.7,
+  "eicu_background_ci": [
+    6.5,
+    6.8
+  ],
+  "mimic_p1_observed_pct": 13.8,
+  "mimic_p1_background_pct": 8.1,
+  "mimic_p1_excess_pp": 5.7,
+  "hospitals": 182,
+  "hosp_median_pct": 3.0,
+  "hosp_iqr": [
+    0.4,
+    9.0
+  ],
+  "hosp_p10_p90": [
+    0.0,
+    14.9
+  ],
+  "hosp_p90_over_p10": 14913000000.0,
+  "doc_lag_median_min": 49.0,
+  "doc_lag_p95_min": 303.0,
+  "doc_lag_pct_over_60min": 43.7,
+  "gates": [
+    {
+      "gate": "F1",
+      "criterion": "background rate non-trivial (5-95%)",
+      "observed": "6.7",
+      "pass": true
+    },
+    {
+      "gate": "F2",
+      "criterion": "within 3x of MIMIC P1 background",
+      "observed": "6.7 vs 8.1",
+      "pass": true
+    },
+    {
+      "gate": "F3",
+      "criterion": "hospitals with >=20 stays >= 100",
+      "observed": "182",
+      "pass": true
+    },
+    {
+      "gate": "F4",
+      "criterion": "bootstrap CI half-width < 5 pp",
+      "observed": "0.15",
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

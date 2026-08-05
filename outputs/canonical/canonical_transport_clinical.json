@@ -1,0 +1,146 @@
+{
+  "temporal_transport": [
+    {
+      "era": "2008 - 2010",
+      "stays": 1879,
+      "interruptions": 1450,
+      "rate_observed_pct": 39.4,
+      "rate_background_pct": 28.9,
+      "rate_excess_pp": 10.5,
+      "energy_excess_kcal": 32564,
+      "shortfall_kcal": 18108688,
+      "pct_of_shortfall": 0.18,
+      "kcal_per_stay": 17.3
+    },
+    {
+      "era": "2011 - 2013",
+      "stays": 1375,
+      "interruptions": 1031,
+      "rate_observed_pct": 38.5,
+      "rate_background_pct": 26.8,
+      "rate_excess_pp": 11.7,
+      "energy_excess_kcal": 26331,
+      "shortfall_kcal": 13135969,
+      "pct_of_shortfall": 0.2,
+      "kcal_per_stay": 19.1
+    },
+    {
+      "era": "2014 - 2016",
+      "stays": 1449,
+      "interruptions": 1159,
+      "rate_observed_pct": 34.3,
+      "rate_background_pct": 26.6,
+      "rate_excess_pp": 7.7,
+      "energy_excess_kcal": 21851,
+      "shortfall_kcal": 13566516,
+      "pct_of_shortfall": 0.161,
+      "kcal_per_stay": 15.1
+    },
+    {
+      "era": "2017 - 2019",
+      "stays": 1483,
+      "interruptions": 1293,
+      "rate_observed_pct": 43.5,
+      "rate_background_pct": 33.6,
+      "rate_excess_pp": 9.9,
+      "energy_excess_kcal": 28065,
+      "shortfall_kcal": 13569888,
+      "pct_of_shortfall": 0.207,
+      "kcal_per_stay": 18.9
+    },
+    {
+      "era": "2020 - 2022",
+      "stays": 697,
+      "interruptions": 562,
+      "rate_observed_pct": 37.0,
+      "rate_background_pct": 28.2,
+      "rate_excess_pp": 8.8,
+      "energy_excess_kcal": 5849,
+      "shortfall_kcal": 6526829,
+      "pct_of_shortfall": 0.09,
+      "kcal_per_stay": 8.4
+    }
+  ],
+  "burden_distribution": {
+    "n_stays": 6883,
+    "net_total_kcal": 114660,
+    "gross_positive_kcal": 304074,
+    "gross_negative_kcal": -189414,
+    "mean_kcal": 16.7,
+    "median_kcal": 0.0,
+    "iqr": [
+      0.0,
+      0.0
+    ],
+    "p90_kcal": 121.3,
+    "p95_kcal": 323.3,
+    "p99_kcal": 800.1,
+    "max_kcal": 2194.7,
+    "pct_stays_exactly_zero": 67.5,
+    "pct_stays_negative": 18.0,
+    "pct_stays_positive": 14.5,
+    "pct_stays_over_100": 10.8,
+    "pct_stays_over_250": 6.3,
+    "pct_stays_over_500": 2.7,
+    "top10pct_kcal": 284249,
+    "top10pct_share_of_gross_positive": 93.5,
+    "top10pct_over_net_total": 2.5
+  },
+  "recovery_delay": [
+    {
+      "class": "P1",
+      "label": "Airway / sedation",
+      "n": 741,
+      "median_h_to_resumption": 4.0,
+      "iqr": "2.1-6.6",
+      "pct_resumed_within_2h": 23.6,
+      "pct_resumed_within_4h": 51.4,
+      "pct_resumed_within_6h": 68.3,
+      "pct_beyond_defensible": 31.7
+    },
+    {
+      "class": "P2",
+      "label": "GI endoscopic",
+      "n": 67,
+      "median_h_to_resumption": 2.8,
+      "iqr": "1.7-5.1",
+      "pct_resumed_within_2h": 35.8,
+      "pct_resumed_within_4h": 59.7,
+      "pct_resumed_within_6h": 77.6,
+      "pct_beyond_defensible": 22.4
+    },
+    {
+      "class": "P3",
+      "label": "Off-unit transport",
+      "n": 658,
+      "median_h_to_resumption": 2.4,
+      "iqr": "1.4-4.7",
+      "pct_resumed_within_2h": 43.0,
+      "pct_resumed_within_4h": 70.1,
+      "pct_resumed_within_6h": 82.8,
+      "pct_beyond_defensible": ""
+    },
+    {
+      "class": "P4",
+      "label": "Bedside invasive",
+      "n": 59,
+      "median_h_to_resumption": 2.4,
+      "iqr": "1.5-5.0",
+      "pct_resumed_within_2h": 44.1,
+      "pct_resumed_within_4h": 66.1,
+      "pct_resumed_within_6h": 83.1,
+      "pct_beyond_defensible": ""
+    },
+    {
+      "class": "P0",
+      "label": "Bedside diagnostics (negative control)",
+      "n": 498,
+      "median_h_to_resumption": 4.4,
+      "iqr": "2.0-8.5",
+      "pct_resumed_within_2h": 25.3,
+      "pct_resumed_within_4h": 46.4,
+      "pct_resumed_within_6h": 63.3,
+      "pct_beyond_defensible": ""
+    }
+  ]
+}

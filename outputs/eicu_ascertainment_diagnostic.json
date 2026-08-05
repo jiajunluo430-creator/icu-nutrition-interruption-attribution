@@ -1,0 +1,18 @@
+{
+  "hospitals": 182,
+  "ascertainment_median_pct": 31.4,
+  "ascertainment_min_pct": 0.0,
+  "ascertainment_max_pct": 86.4,
+  "pearson_r": 0.593,
+  "r_squared": 0.352,
+  "restricted_n_hospitals": 92,
+  "restricted_median_pct": 7.7,
+  "restricted_iqr": [
+    2.5,
+    13.2
+  ],
+  "restricted_p10_p90": [
+    0.8,
+    22.9
+  ]
+}
