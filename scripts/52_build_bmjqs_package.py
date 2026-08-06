@@ -126,11 +126,13 @@ PKG = SUB / "bmjqs_package"
 if PKG.exists():
     shutil.rmtree(PKG)
 PKG.mkdir()
-for i, f in enumerate(["figure1_cohort_flow", "figure3_attribution",
+for i, f in enumerate(["figure1_cohort_flow", "figure2_attribution_bmjqs",
                        "figure3_comparability"], 1):
     for ext in ("tif", "pdf"):
         if (FIG / f"{f}.{ext}").exists():
             shutil.copy(FIG / f"{f}.{ext}", PKG / f"Figure{i}.{ext}")
+for ext in ("tif", "pdf", "png"):
+    shutil.copy(FIG / f"graphical_abstract.{ext}", PKG / f"Graphical_abstract.{ext}")
 for a, b in [("BMJQS_manuscript.docx", "Manuscript.docx"),
              ("BMJQS_cover_letter.docx", "Cover_Letter.docx"),
              ("BMJQS_Additional_file_1.docx", "Additional_file_1.docx")]:
@@ -176,6 +178,13 @@ checks = [
     ("3 figures present (tif+pdf)",
      all((PKG / f"Figure{i}.{ext}").exists() for i in (1, 2, 3) for ext in ("tif", "pdf")),
      "yes"),
+    ("graphical abstract supplied",
+     all((PKG / f"Graphical_abstract.{e}").exists() for e in ("tif", "pdf", "png")),
+     "tif+pdf+png, 3:1 banner"),
+    ("figure legends free of colour words",
+     not any(w in ms.split("## Figure legends")[1].split("## Declarations")[0].lower()
+             for w in ("blue", "orange", "green", "colour", "color", "shaded")),
+     "BMJ prints greyscale"),
     ("3 documents present",
      all((PKG / n).exists() for n in ("Manuscript.docx", "Cover_Letter.docx",
                                       "Additional_file_1.docx")), "yes"),
@@ -191,7 +200,7 @@ qa.to_csv(PKG / "submission_qa.csv", index=False)
     "- [x] Code deposited: https://github.com/jiajunluo430-creator/icu-nutrition-interruption-attribution",
     "- [ ] Mint a Zenodo DOI and add it to the data availability statement",
     "- [ ] ORCIDs for all five authors",
-    "- [ ] Graphical abstract (BMJ QS recommends one; not generated here)",
+    "- [x] Graphical abstract supplied (Graphical_abstract.tif/pdf/png)",
     "- [ ] Confirm abstract word count in Word against the 250-word limit",
     "- [ ] Confirm double line spacing if required at submission",
 ]), encoding="utf-8")
