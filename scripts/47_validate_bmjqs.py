@@ -167,7 +167,12 @@ def wc(s):
 
 
 ab = wc(RAW.split("## Abstract", 1)[1].split("**Keywords:**", 1)[0])
-bd = wc(RAW.split("## Introduction", 1)[1].split("## References", 1)[0])
+# BMJ counts Introduction..Conclusion only: tables, abbreviations, figure legends,
+# declarations and references are all excluded from the word limit
+_body = RAW.split("## Introduction", 1)[1].split("## Abbreviations", 1)[0]
+_body = "\n".join(l for l in _body.split("\n")
+                  if not l.lstrip().startswith("|") and not l.startswith("**Table "))
+bd = wc(_body)
 chk("abstract <= 250 words", ab, ab <= 250)
 chk("main text <= 4000 words", bd, bd <= 4000)
 
